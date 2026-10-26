@@ -6,7 +6,7 @@ Classical values and perfect quantum strategies for **linear system nonlocal gam
 
 A linear system `Ax = b` over Z₂ defines a two-player game. The referee sends Alice an equation `i` and Bob a variable `j` from that equation. Alice answers with values for every variable in equation `i`, Bob answers with a value for `x_j`, and they win if Alice's values satisfy the equation and agree with Bob's on `x_j`. They cannot communicate once the questions are sent.
 
-If the system has no solution, no classical strategy always wins. Some unsatisfiable systems, the Mermin–Peres magic square and Mermin's magic pentagram among them, still have a perfect *quantum* strategy. The strategy comes from an **operator solution**: an assignment of ±1-valued observables to the variables such that the observables in each equation commute and multiply to (−1)^{b_i}·I (Cleve–Mittal 2014; Cleve–Liu–Slofstra 2017).
+If the system has no solution, no classical strategy always wins. Some unsatisfiable systems, the Mermin–Peres magic square and Mermin's magic pentagram among them, still have a perfect *quantum* strategy. The strategy comes from an **operator solution**: an assignment of ±1-valued observables to the variables such that the observables in each equation commute and multiply to (−1)^{b_i}·I ([Cleve–Mittal 2014](https://arxiv.org/abs/1209.2729); [Cleve–Liu–Slofstra 2017](https://arxiv.org/abs/1606.02278)).
 
 This package:
 
@@ -53,7 +53,7 @@ from lsgames import QuantumStrategy, classical_value, magic_pentagram
 system, solution = magic_pentagram()
 print(classical_value(system).value)          # 19/20
 strategy = QuantumStrategy(system, solution)
-print(strategy.win_probability())             # 1.0
+print(round(strategy.win_probability(), 9))   # 1.0
 print(strategy.circuit((0, 0)).draw())        # circuit for equation 0, variable 0
 ```
 
